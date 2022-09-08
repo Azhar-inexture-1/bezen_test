@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>search</title>
+</head>
+<body>
+    <div style="margin-top: 10px">
+        <a href="{% url 'home' %}">home</a><br/>
+        <a href="{% url 'videos' %}">videos</a>
+    </div>
+    <h1>Videos List</h1>
+    <form action="" enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <div>
+                <label for="phrase">Phrase: </label>
+                <input type="text" name="phrase" required=True id="phrase">
+            </div>
+            <div style="margin-top: 15px">
+                <input type="submit" value="search"/>
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>

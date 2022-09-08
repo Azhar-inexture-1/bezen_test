@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Videos</title>
+</head>
+<body>
+    <div style="margin-top: 10px">
+        <a href="{% url 'home' %}">home</a><br/>
+        <a href="{% url 'videos' %}">videos</a>
+    </div>
+    <h1>Videos List</h1>
+    {% for video in videos %}
+    <a href="{% url 'search' subtitle_id=video.subtitle_id %}">
+    <div style="border: 1px solid grey; margin-bottom: 10px; padding: 10px">
+        {% for key, value in video.items %}
+            <div>
+                {{ key }}: {{ value }}
+            </div>
+        {% endfor %}
+    </div>
+    </a>
+    {% endfor %}
+</body>
+</html>

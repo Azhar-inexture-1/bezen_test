@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+</head>
+<body>
+    <div style="margin-top: 10px">
+        <a href="{% url 'home' %}">home</a><br/>
+        <a href="{% url 'videos' %}">videos</a>
+    </div>
+    <h1>Videos List</h1>
+    <h4>Phase: {{phase}}</h4>
+    {% for value in values %}
+        <div style="border: 1px solid grey; margin-bottom: 10px; padding: 10px">
+            <div>
+                video: {% get_media_prefix %}{{ value|get_value:"name" }}
+            </div>
+            <div>
+                start: {{ value|get_value:"start" }}
+            </div>
+            <div>
+                end: {{ value|get_value:"end" }}
+            </div>
+            <div>
+                text: {{ value|get_value:"text" }}
+            </div>
+        </div>
+    {% endfor %}
+</body>
+</html>
